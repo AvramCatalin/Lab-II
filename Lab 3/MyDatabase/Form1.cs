@@ -21,7 +21,7 @@ namespace MyDatabase
         {
             InitializeComponent();
             myCon.ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;
-                                        AttachDbFilename=C:\Users\Catalin\Documents\Lab-II\Lab 3\MyDatabase\Database1.mdf;
+                                        AttachDbFilename=C:\Users\Catalin\Documents\GitHub\Lab-II\Lab 3\MyDatabase\Database1.mdf;
                                         Integrated Security = True";
             MyDataGridView();
             ListRefresh();
