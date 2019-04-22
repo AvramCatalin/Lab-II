@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MyDatabase
@@ -71,14 +66,14 @@ namespace MyDatabase
                 SqlCommandBuilder cmdbl = new SqlCommandBuilder(adapter);
                 adapter.Update(table);
             }
-            catch (Exception exec)
+            catch (Exception)
             {
                 MessageBox.Show("Cod invalid!");
             }
             ListRefresh();
         }
         
-        private void ListBox_Univ_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void ListBox_Univ_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox_Fac.Items.Clear();
             textBox_City.Clear();
@@ -88,7 +83,7 @@ namespace MyDatabase
             {
                     UnivSelected = listBox_Univ.SelectedItem.ToString();
             }
-            catch (Exception exec)
+            catch (Exception)
             {
 
             }
@@ -125,7 +120,7 @@ namespace MyDatabase
             {
                 UnivSelected = listBox_Univ.SelectedItem.ToString();
             }
-            catch (Exception exec)
+            catch (Exception)
             {
                 MessageBox.Show("Selecteaza o universitate!");
             }
@@ -139,9 +134,9 @@ namespace MyDatabase
                 {
                     command.ExecuteNonQuery();
                 }
-                catch (Exception exec)
+                catch (Exception)
                 {
-                    MessageBox.Show("Eroare gasita si ignorata!");
+                    MessageBox.Show("Universitatea are facultati, nu poate fi stearsa!\n");
                 }
             }
             myCon.Close();
@@ -165,7 +160,7 @@ namespace MyDatabase
             {
                 UnivSelected = listBox_Univ.SelectedItem.ToString();
             }
-            catch (Exception exec)
+            catch (Exception)
             {
                 MessageBox.Show("Selecteaza o universitate!");
             }
@@ -177,7 +172,7 @@ namespace MyDatabase
                 {
                     command.ExecuteNonQuery();
                 }
-                catch (Exception exec)
+                catch (Exception)
                 {
                     MessageBox.Show("Optiune invalida");
                 }
@@ -202,7 +197,7 @@ namespace MyDatabase
             {
                 command.ExecuteNonQuery();
             }
-            catch (Exception exec)
+            catch (Exception)
             {
                 MessageBox.Show("Cod universitar invalid!");
             }
@@ -210,38 +205,6 @@ namespace MyDatabase
             myCon.Close();
 
             ListRefresh();
-        }
-        private void TextBox_Name_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void TextBox_ModCity_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void Label5_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void Label4_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
