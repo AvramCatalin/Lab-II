@@ -180,7 +180,6 @@ namespace MyDatabase
                 catch (Exception exec)
                 {
                     MessageBox.Show("Optiune invalida");
-                    throw;
                 }
             }
             myCon.Close();
