@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ShowDatabase">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowDatabaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowDatabaseResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ShowWeight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PizzaSelected" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowWeightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ShowWeightResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PizzaSelected" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ShowPriceResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PizzaSelected" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ShowDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowDatabase" />
+  </wsdl:message>
+  <wsdl:message name="ShowDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowWeightSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowWeight" />
+  </wsdl:message>
+  <wsdl:message name="ShowWeightSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowWeightResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowPrice" />
+  </wsdl:message>
+  <wsdl:message name="ShowPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowDetails" />
+  </wsdl:message>
+  <wsdl:message name="ShowDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowDetailsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="ShowDatabase">
+      <wsdl:input message="tns:ShowDatabaseSoapIn" />
+      <wsdl:output message="tns:ShowDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowWeight">
+      <wsdl:input message="tns:ShowWeightSoapIn" />
+      <wsdl:output message="tns:ShowWeightSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowPrice">
+      <wsdl:input message="tns:ShowPriceSoapIn" />
+      <wsdl:output message="tns:ShowPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowDetails">
+      <wsdl:input message="tns:ShowDetailsSoapIn" />
+      <wsdl:output message="tns:ShowDetailsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ShowDatabase">
+      <soap:operation soapAction="http://tempuri.org/ShowDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowWeight">
+      <soap:operation soapAction="http://tempuri.org/ShowWeight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowPrice">
+      <soap:operation soapAction="http://tempuri.org/ShowPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowDetails">
+      <soap:operation soapAction="http://tempuri.org/ShowDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ShowDatabase">
+      <soap12:operation soapAction="http://tempuri.org/ShowDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowWeight">
+      <soap12:operation soapAction="http://tempuri.org/ShowWeight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowPrice">
+      <soap12:operation soapAction="http://tempuri.org/ShowPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowDetails">
+      <soap12:operation soapAction="http://tempuri.org/ShowDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="http://localhost:50743/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="http://localhost:50743/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
