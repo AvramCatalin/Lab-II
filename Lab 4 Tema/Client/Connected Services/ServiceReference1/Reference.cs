@@ -9,313 +9,54 @@
 //------------------------------------------------------------------------------
 
 namespace Client.ServiceReference1 {
-    using System.Runtime.Serialization;
-    using System;
+    using System.Data;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfString", Namespace="http://tempuri.org/", ItemName="string")]
-    [System.SerializableAttribute()]
-    public class ArrayOfString : System.Collections.Generic.List<string> {
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.WebService1Soap")]
     public interface WebService1Soap {
         
-        // CODEGEN: Generating message contract since element name ShowDatabaseResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowDatabase", ReplyAction="*")]
-        Client.ServiceReference1.ShowDatabaseResponse ShowDatabase(Client.ServiceReference1.ShowDatabaseRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowMenu", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string[] ShowMenu();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowDatabase", ReplyAction="*")]
-        System.Threading.Tasks.Task<Client.ServiceReference1.ShowDatabaseResponse> ShowDatabaseAsync(Client.ServiceReference1.ShowDatabaseRequest request);
-        
-        // CODEGEN: Generating message contract since element name PizzaSelected from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowWeight", ReplyAction="*")]
-        Client.ServiceReference1.ShowWeightResponse ShowWeight(Client.ServiceReference1.ShowWeightRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowMenu", ReplyAction="*")]
+        System.Threading.Tasks.Task<string[]> ShowMenuAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowWeight", ReplyAction="*")]
-        System.Threading.Tasks.Task<Client.ServiceReference1.ShowWeightResponse> ShowWeightAsync(Client.ServiceReference1.ShowWeightRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        float ShowWeight(string PizzaSelected);
         
-        // CODEGEN: Generating message contract since element name PizzaSelected from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowWeight", ReplyAction="*")]
+        System.Threading.Tasks.Task<float> ShowWeightAsync(string PizzaSelected);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowPrice", ReplyAction="*")]
-        Client.ServiceReference1.ShowPriceResponse ShowPrice(Client.ServiceReference1.ShowPriceRequest request);
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        float ShowPrice(string PizzaSelected);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowPrice", ReplyAction="*")]
-        System.Threading.Tasks.Task<Client.ServiceReference1.ShowPriceResponse> ShowPriceAsync(Client.ServiceReference1.ShowPriceRequest request);
-        
-        // CODEGEN: Generating message contract since element name PizzaSelected from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowDetails", ReplyAction="*")]
-        Client.ServiceReference1.ShowDetailsResponse ShowDetails(Client.ServiceReference1.ShowDetailsRequest request);
+        System.Threading.Tasks.Task<float> ShowPriceAsync(string PizzaSelected);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowDetails", ReplyAction="*")]
-        System.Threading.Tasks.Task<Client.ServiceReference1.ShowDetailsResponse> ShowDetailsAsync(Client.ServiceReference1.ShowDetailsRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ShowDatabaseRequest {
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string ShowDetails(string PizzaSelected);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ShowDatabase", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServiceReference1.ShowDatabaseRequestBody Body;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowDetails", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> ShowDetailsAsync(string PizzaSelected);
         
-        public ShowDatabaseRequest() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowDatabase", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable ShowDatabase();
         
-        public ShowDatabaseRequest(Client.ServiceReference1.ShowDatabaseRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class ShowDatabaseRequestBody {
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ShowDatabase", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ShowDatabaseAsync();
         
-        public ShowDatabaseRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ShowDatabaseResponse {
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateDatabase", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string UpdateDatabase(System.Data.DataTable newTable);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ShowDatabaseResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServiceReference1.ShowDatabaseResponseBody Body;
-        
-        public ShowDatabaseResponse() {
-        }
-        
-        public ShowDatabaseResponse(Client.ServiceReference1.ShowDatabaseResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class ShowDatabaseResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public Client.ServiceReference1.ArrayOfString ShowDatabaseResult;
-        
-        public ShowDatabaseResponseBody() {
-        }
-        
-        public ShowDatabaseResponseBody(Client.ServiceReference1.ArrayOfString ShowDatabaseResult) {
-            this.ShowDatabaseResult = ShowDatabaseResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ShowWeightRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ShowWeight", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServiceReference1.ShowWeightRequestBody Body;
-        
-        public ShowWeightRequest() {
-        }
-        
-        public ShowWeightRequest(Client.ServiceReference1.ShowWeightRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class ShowWeightRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string PizzaSelected;
-        
-        public ShowWeightRequestBody() {
-        }
-        
-        public ShowWeightRequestBody(string PizzaSelected) {
-            this.PizzaSelected = PizzaSelected;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ShowWeightResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ShowWeightResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServiceReference1.ShowWeightResponseBody Body;
-        
-        public ShowWeightResponse() {
-        }
-        
-        public ShowWeightResponse(Client.ServiceReference1.ShowWeightResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class ShowWeightResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public float ShowWeightResult;
-        
-        public ShowWeightResponseBody() {
-        }
-        
-        public ShowWeightResponseBody(float ShowWeightResult) {
-            this.ShowWeightResult = ShowWeightResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ShowPriceRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ShowPrice", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServiceReference1.ShowPriceRequestBody Body;
-        
-        public ShowPriceRequest() {
-        }
-        
-        public ShowPriceRequest(Client.ServiceReference1.ShowPriceRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class ShowPriceRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string PizzaSelected;
-        
-        public ShowPriceRequestBody() {
-        }
-        
-        public ShowPriceRequestBody(string PizzaSelected) {
-            this.PizzaSelected = PizzaSelected;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ShowPriceResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ShowPriceResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServiceReference1.ShowPriceResponseBody Body;
-        
-        public ShowPriceResponse() {
-        }
-        
-        public ShowPriceResponse(Client.ServiceReference1.ShowPriceResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class ShowPriceResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public float ShowPriceResult;
-        
-        public ShowPriceResponseBody() {
-        }
-        
-        public ShowPriceResponseBody(float ShowPriceResult) {
-            this.ShowPriceResult = ShowPriceResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ShowDetailsRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ShowDetails", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServiceReference1.ShowDetailsRequestBody Body;
-        
-        public ShowDetailsRequest() {
-        }
-        
-        public ShowDetailsRequest(Client.ServiceReference1.ShowDetailsRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class ShowDetailsRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string PizzaSelected;
-        
-        public ShowDetailsRequestBody() {
-        }
-        
-        public ShowDetailsRequestBody(string PizzaSelected) {
-            this.PizzaSelected = PizzaSelected;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ShowDetailsResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ShowDetailsResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Client.ServiceReference1.ShowDetailsResponseBody Body;
-        
-        public ShowDetailsResponse() {
-        }
-        
-        public ShowDetailsResponse(Client.ServiceReference1.ShowDetailsResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class ShowDetailsResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string ShowDetailsResult;
-        
-        public ShowDetailsResponseBody() {
-        }
-        
-        public ShowDetailsResponseBody(string ShowDetailsResult) {
-            this.ShowDetailsResult = ShowDetailsResult;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateDatabase", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> UpdateDatabaseAsync(System.Data.DataTable newTable);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -345,102 +86,52 @@ namespace Client.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Client.ServiceReference1.ShowDatabaseResponse Client.ServiceReference1.WebService1Soap.ShowDatabase(Client.ServiceReference1.ShowDatabaseRequest request) {
-            return base.Channel.ShowDatabase(request);
+        public string[] ShowMenu() {
+            return base.Channel.ShowMenu();
         }
         
-        public Client.ServiceReference1.ArrayOfString ShowDatabase() {
-            Client.ServiceReference1.ShowDatabaseRequest inValue = new Client.ServiceReference1.ShowDatabaseRequest();
-            inValue.Body = new Client.ServiceReference1.ShowDatabaseRequestBody();
-            Client.ServiceReference1.ShowDatabaseResponse retVal = ((Client.ServiceReference1.WebService1Soap)(this)).ShowDatabase(inValue);
-            return retVal.Body.ShowDatabaseResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Client.ServiceReference1.ShowDatabaseResponse> Client.ServiceReference1.WebService1Soap.ShowDatabaseAsync(Client.ServiceReference1.ShowDatabaseRequest request) {
-            return base.Channel.ShowDatabaseAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServiceReference1.ShowDatabaseResponse> ShowDatabaseAsync() {
-            Client.ServiceReference1.ShowDatabaseRequest inValue = new Client.ServiceReference1.ShowDatabaseRequest();
-            inValue.Body = new Client.ServiceReference1.ShowDatabaseRequestBody();
-            return ((Client.ServiceReference1.WebService1Soap)(this)).ShowDatabaseAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Client.ServiceReference1.ShowWeightResponse Client.ServiceReference1.WebService1Soap.ShowWeight(Client.ServiceReference1.ShowWeightRequest request) {
-            return base.Channel.ShowWeight(request);
+        public System.Threading.Tasks.Task<string[]> ShowMenuAsync() {
+            return base.Channel.ShowMenuAsync();
         }
         
         public float ShowWeight(string PizzaSelected) {
-            Client.ServiceReference1.ShowWeightRequest inValue = new Client.ServiceReference1.ShowWeightRequest();
-            inValue.Body = new Client.ServiceReference1.ShowWeightRequestBody();
-            inValue.Body.PizzaSelected = PizzaSelected;
-            Client.ServiceReference1.ShowWeightResponse retVal = ((Client.ServiceReference1.WebService1Soap)(this)).ShowWeight(inValue);
-            return retVal.Body.ShowWeightResult;
+            return base.Channel.ShowWeight(PizzaSelected);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Client.ServiceReference1.ShowWeightResponse> Client.ServiceReference1.WebService1Soap.ShowWeightAsync(Client.ServiceReference1.ShowWeightRequest request) {
-            return base.Channel.ShowWeightAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServiceReference1.ShowWeightResponse> ShowWeightAsync(string PizzaSelected) {
-            Client.ServiceReference1.ShowWeightRequest inValue = new Client.ServiceReference1.ShowWeightRequest();
-            inValue.Body = new Client.ServiceReference1.ShowWeightRequestBody();
-            inValue.Body.PizzaSelected = PizzaSelected;
-            return ((Client.ServiceReference1.WebService1Soap)(this)).ShowWeightAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Client.ServiceReference1.ShowPriceResponse Client.ServiceReference1.WebService1Soap.ShowPrice(Client.ServiceReference1.ShowPriceRequest request) {
-            return base.Channel.ShowPrice(request);
+        public System.Threading.Tasks.Task<float> ShowWeightAsync(string PizzaSelected) {
+            return base.Channel.ShowWeightAsync(PizzaSelected);
         }
         
         public float ShowPrice(string PizzaSelected) {
-            Client.ServiceReference1.ShowPriceRequest inValue = new Client.ServiceReference1.ShowPriceRequest();
-            inValue.Body = new Client.ServiceReference1.ShowPriceRequestBody();
-            inValue.Body.PizzaSelected = PizzaSelected;
-            Client.ServiceReference1.ShowPriceResponse retVal = ((Client.ServiceReference1.WebService1Soap)(this)).ShowPrice(inValue);
-            return retVal.Body.ShowPriceResult;
+            return base.Channel.ShowPrice(PizzaSelected);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Client.ServiceReference1.ShowPriceResponse> Client.ServiceReference1.WebService1Soap.ShowPriceAsync(Client.ServiceReference1.ShowPriceRequest request) {
-            return base.Channel.ShowPriceAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Client.ServiceReference1.ShowPriceResponse> ShowPriceAsync(string PizzaSelected) {
-            Client.ServiceReference1.ShowPriceRequest inValue = new Client.ServiceReference1.ShowPriceRequest();
-            inValue.Body = new Client.ServiceReference1.ShowPriceRequestBody();
-            inValue.Body.PizzaSelected = PizzaSelected;
-            return ((Client.ServiceReference1.WebService1Soap)(this)).ShowPriceAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Client.ServiceReference1.ShowDetailsResponse Client.ServiceReference1.WebService1Soap.ShowDetails(Client.ServiceReference1.ShowDetailsRequest request) {
-            return base.Channel.ShowDetails(request);
+        public System.Threading.Tasks.Task<float> ShowPriceAsync(string PizzaSelected) {
+            return base.Channel.ShowPriceAsync(PizzaSelected);
         }
         
         public string ShowDetails(string PizzaSelected) {
-            Client.ServiceReference1.ShowDetailsRequest inValue = new Client.ServiceReference1.ShowDetailsRequest();
-            inValue.Body = new Client.ServiceReference1.ShowDetailsRequestBody();
-            inValue.Body.PizzaSelected = PizzaSelected;
-            Client.ServiceReference1.ShowDetailsResponse retVal = ((Client.ServiceReference1.WebService1Soap)(this)).ShowDetails(inValue);
-            return retVal.Body.ShowDetailsResult;
+            return base.Channel.ShowDetails(PizzaSelected);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Client.ServiceReference1.ShowDetailsResponse> Client.ServiceReference1.WebService1Soap.ShowDetailsAsync(Client.ServiceReference1.ShowDetailsRequest request) {
-            return base.Channel.ShowDetailsAsync(request);
+        public System.Threading.Tasks.Task<string> ShowDetailsAsync(string PizzaSelected) {
+            return base.Channel.ShowDetailsAsync(PizzaSelected);
         }
         
-        public System.Threading.Tasks.Task<Client.ServiceReference1.ShowDetailsResponse> ShowDetailsAsync(string PizzaSelected) {
-            Client.ServiceReference1.ShowDetailsRequest inValue = new Client.ServiceReference1.ShowDetailsRequest();
-            inValue.Body = new Client.ServiceReference1.ShowDetailsRequestBody();
-            inValue.Body.PizzaSelected = PizzaSelected;
-            return ((Client.ServiceReference1.WebService1Soap)(this)).ShowDetailsAsync(inValue);
+        public System.Data.DataTable ShowDatabase() {
+            return base.Channel.ShowDatabase();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ShowDatabaseAsync() {
+            return base.Channel.ShowDatabaseAsync();
+        }
+        
+        public string UpdateDatabase(System.Data.DataTable newTable) {
+            return base.Channel.UpdateDatabase(newTable);
+        }
+        
+        public System.Threading.Tasks.Task<string> UpdateDatabaseAsync(System.Data.DataTable newTable) {
+            return base.Channel.UpdateDatabaseAsync(newTable);
         }
     }
 }

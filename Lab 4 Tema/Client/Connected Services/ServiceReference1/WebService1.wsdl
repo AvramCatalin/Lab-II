@@ -2,13 +2,13 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      <s:element name="ShowDatabase">
+      <s:element name="ShowMenu">
         <s:complexType />
       </s:element>
-      <s:element name="ShowDatabaseResponse">
+      <s:element name="ShowMenuResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="ShowDatabaseResult" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShowMenuResult" type="tns:ArrayOfString" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -59,13 +59,51 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ShowDatabase">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowDatabaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowDatabaseResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDatabase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newTable">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDatabaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDatabaseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="ShowDatabaseSoapIn">
-    <wsdl:part name="parameters" element="tns:ShowDatabase" />
+  <wsdl:message name="ShowMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowMenu" />
   </wsdl:message>
-  <wsdl:message name="ShowDatabaseSoapOut">
-    <wsdl:part name="parameters" element="tns:ShowDatabaseResponse" />
+  <wsdl:message name="ShowMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowMenuResponse" />
   </wsdl:message>
   <wsdl:message name="ShowWeightSoapIn">
     <wsdl:part name="parameters" element="tns:ShowWeight" />
@@ -85,10 +123,22 @@
   <wsdl:message name="ShowDetailsSoapOut">
     <wsdl:part name="parameters" element="tns:ShowDetailsResponse" />
   </wsdl:message>
+  <wsdl:message name="ShowDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowDatabase" />
+  </wsdl:message>
+  <wsdl:message name="ShowDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDatabaseSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDatabase" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDatabaseSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDatabaseResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebService1Soap">
-    <wsdl:operation name="ShowDatabase">
-      <wsdl:input message="tns:ShowDatabaseSoapIn" />
-      <wsdl:output message="tns:ShowDatabaseSoapOut" />
+    <wsdl:operation name="ShowMenu">
+      <wsdl:input message="tns:ShowMenuSoapIn" />
+      <wsdl:output message="tns:ShowMenuSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="ShowWeight">
       <wsdl:input message="tns:ShowWeightSoapIn" />
@@ -102,11 +152,19 @@
       <wsdl:input message="tns:ShowDetailsSoapIn" />
       <wsdl:output message="tns:ShowDetailsSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="ShowDatabase">
+      <wsdl:input message="tns:ShowDatabaseSoapIn" />
+      <wsdl:output message="tns:ShowDatabaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDatabase">
+      <wsdl:input message="tns:UpdateDatabaseSoapIn" />
+      <wsdl:output message="tns:UpdateDatabaseSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="ShowDatabase">
-      <soap:operation soapAction="http://tempuri.org/ShowDatabase" style="document" />
+    <wsdl:operation name="ShowMenu">
+      <soap:operation soapAction="http://tempuri.org/ShowMenu" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -141,11 +199,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ShowDatabase">
+      <soap:operation soapAction="http://tempuri.org/ShowDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDatabase">
+      <soap:operation soapAction="http://tempuri.org/UpdateDatabase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="ShowDatabase">
-      <soap12:operation soapAction="http://tempuri.org/ShowDatabase" style="document" />
+    <wsdl:operation name="ShowMenu">
+      <soap12:operation soapAction="http://tempuri.org/ShowMenu" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -173,6 +249,24 @@
     </wsdl:operation>
     <wsdl:operation name="ShowDetails">
       <soap12:operation soapAction="http://tempuri.org/ShowDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowDatabase">
+      <soap12:operation soapAction="http://tempuri.org/ShowDatabase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDatabase">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDatabase" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

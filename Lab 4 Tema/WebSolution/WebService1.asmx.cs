@@ -25,7 +25,7 @@ namespace WebSolution
         static SqlConnection DataConnection = new SqlConnection(Connection);
 
         [WebMethod]
-        public List<String> ShowDatabase()
+        public List<String> ShowMenu()
         {
             DataConnection.Open();
             dsPizza = new DataSet();
@@ -85,6 +85,35 @@ namespace WebSolution
                 }
             }
             return "error occured";
+        }
+        DataTable table = new DataTable() { TableName = "MyServerTable" };
+        [WebMethod]
+        public DataTable ShowDatabase()
+        {
+            DataConnection.Open();
+            //Creating the Data adapter
+            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Pizza", DataConnection))
+            {
+                adapter.Fill(table);
+                DataConnection.Close();
+                return table;
+            }
+        }
+        [WebMethod]
+        public String UpdateDatabase(DataTable newTable)
+        {
+            table = newTable;
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Pizza", DataConnection);
+            try
+            {
+                SqlCommandBuilder cmdbl = new SqlCommandBuilder(adapter);
+                adapter.Update(table);
+            }
+            catch (Exception)
+            {
+                return "There was an error proccesing the command!";
+            }
+            return "Done!";
         }
     }
 }

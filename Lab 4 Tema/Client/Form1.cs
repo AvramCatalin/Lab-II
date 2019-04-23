@@ -16,7 +16,18 @@ namespace Client
         public Form1()
         {
             InitializeComponent();
-            listBox_nume.DataSource = service.ShowDatabase();
+            ListRefresh();
+        }
+        public void ListRefresh()
+        {
+            try
+            {
+                listBox_nume.DataSource = service.ShowMenu();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Web Solution not available!");
+            }
         }
         private void ListBox_nume_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -37,6 +48,17 @@ namespace Client
                 textBox_price.Text = service.ShowPrice(PizzaSelected).ToString()+" lei";
                 richTextBox_details.Text = service.ShowDetails(PizzaSelected).ToString();
             }
+        }
+
+        private void Button_modify_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
+            form2.FormClosed += new FormClosedEventHandler(Form2_FormClosed);
+        }
+        void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ListRefresh();
         }
     }
 }
