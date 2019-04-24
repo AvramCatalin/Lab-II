@@ -19,6 +19,8 @@ namespace Client
             InitializeComponent();
             table = service.ShowDatabase();
             dataGridView1.DataSource = table;
+            //Hides the first column, (PizzaId)
+            this.dataGridView1.Columns[0].Visible = false;
         }
 
         private void Button_update_Click(object sender, EventArgs e)
