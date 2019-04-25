@@ -24,7 +24,6 @@ namespace ExTwo
             foreach(string line in lines)
             {
                 fruitList.Add(line);
-                Console.WriteLine(line);
             }
             listBox1.DataSource = fruitList;
         }
