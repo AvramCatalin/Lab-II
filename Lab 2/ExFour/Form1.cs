@@ -46,37 +46,8 @@ namespace ExFour
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selection = listBox1.SelectedItem.ToString();
-            switch (selection)
-            {
-                case "Ananas":
-                    DisplayImage(selection);
-                    break;
-                case "Banana":
-                    DisplayImage(selection);
-                    break;
-                case "Mar":
-                    DisplayImage(selection);
-                    break;
-                case "Para":
-                    DisplayImage(selection);
-                    break;
-                case "Pruna":
-                    DisplayImage(selection);
-                    break;
-                case "Caisa":
-                    DisplayImage(selection);
-                    break;
-                case "Cireasa":
-                    DisplayImage(selection);
-                    break;
-                case "Capsuna":
-                    DisplayImage(selection);
-                    break;
-                default:
-                    break;
-            }
+            DisplayImage(selection);
         }
-
         private void Button1_Click(object sender, EventArgs e)
         {
             bool adjectiveCheck = false;
