@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Web.Hosting;
 
 namespace WebSolution
 {
@@ -20,7 +21,7 @@ namespace WebSolution
     {
         DataSet dsPizza;
         static string Connection = @"Data Source = (LocalDB)\MSSQLLocalDB;
-                                        AttachDbFilename=C:\Users\Catalin\Documents\GitHub\Lab-II\Lab 4 Tema\WebSolution\App_Data\Database1.mdf;
+                                        AttachDbFilename=|DataDirectory|Database1.mdf;
                                         Integrated Security = True";
         static SqlConnection DataConnection = new SqlConnection(Connection);
 

@@ -12,25 +12,23 @@ namespace ClientWindowsFormsApp
 {
     public partial class Form1 : Form
     {
+        ClientWindowsFormsApp.ServiceReference1.WebService1SoapClient service = new ClientWindowsFormsApp.ServiceReference1.WebService1SoapClient();
         public Form1()
         {
             InitializeComponent();
         }
         private void Button_AddList_Click(object sender, EventArgs e)
         {
-            ClientWindowsFormsApp.ServiceReference1.WebService1SoapClient service = new ClientWindowsFormsApp.ServiceReference1.WebService1SoapClient();
             var list = new List<int>();
             list = service.ReturnList();
             listBox1.DataSource = list;
         }
         private void Button_Refresh_Click(object sender, EventArgs e)
         {
-            ClientWindowsFormsApp.ServiceReference1.WebService1SoapClient service = new ClientWindowsFormsApp.ServiceReference1.WebService1SoapClient();
             label_Data.Text = service.CurrentDateTime();
         }
         private void Button_Exchange_Click(object sender, EventArgs e)
         {
-            ClientWindowsFormsApp.ServiceReference1.WebService1SoapClient service = new ClientWindowsFormsApp.ServiceReference1.WebService1SoapClient();
             float sum = 0f;
             bool option = true;
             try
@@ -50,7 +48,6 @@ namespace ClientWindowsFormsApp
         }
         private void Button_CtoF_Click(object sender, EventArgs e)
         {
-            ClientWindowsFormsApp.ServiceReference1.WebService1SoapClient service = new ClientWindowsFormsApp.ServiceReference1.WebService1SoapClient();
             float temp = 0f;
             bool option = true;
             try
@@ -59,7 +56,7 @@ namespace ClientWindowsFormsApp
             }
             catch (Exception)
             {
-                MessageBox.Show("Valoarea data nu este valida!");
+                MessageBox.Show("Valoarea Temp C nu este valida!");
                 option = false;
             }
             if (option)
@@ -70,7 +67,6 @@ namespace ClientWindowsFormsApp
         }
         private void Button_FtoC_Click(object sender, EventArgs e)
         {
-            ClientWindowsFormsApp.ServiceReference1.WebService1SoapClient service = new ClientWindowsFormsApp.ServiceReference1.WebService1SoapClient();
             float temp = 0f;
             bool option = true;
             try
@@ -79,7 +75,7 @@ namespace ClientWindowsFormsApp
             }
             catch (Exception)
             {
-                MessageBox.Show("Valoarea data nu este valida!");
+                MessageBox.Show("Valoarea Temp F nu este valida!");
                 option = false;
             }
             if (option)
