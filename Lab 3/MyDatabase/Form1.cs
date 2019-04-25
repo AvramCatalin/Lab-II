@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Windows.Forms;
 
 namespace MyDatabase
@@ -15,9 +16,11 @@ namespace MyDatabase
         public Form1()
         {
             InitializeComponent();
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
             myCon.ConnectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;
-                                        AttachDbFilename=C:\Users\Catalin\Documents\GitHub\Lab-II\Lab 3\MyDatabase\Database1.mdf;
-                                        Integrated Security = True";
+                                        AttachDbFilename="+projectDirectory+@"\Database1.mdf;" +
+                                        "Integrated Security = True";
             MyDataGridView();
             ListRefresh();
         }
