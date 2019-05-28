@@ -1,0 +1,15 @@
+﻿<Window x:Class="Ex1.Welcome"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ex1"
+        mc:Ignorable="d"
+        Title="Welcome" Height="250" Width="250">
+    <Grid>
+        <Button x:Name="button" Content="Exit" Margin="58.5,140,58.5,25" FontSize="20" Click="ButtonExit_Click"/>
+        <TextBlock x:Name="textBlock_Hello" HorizontalAlignment="Left" Margin="30,45,0,140" TextWrapping="Wrap" Text="Hello" FontSize="24"/>
+        <TextBlock x:Name="textBlock_Username" Margin="101,45,31,140" TextWrapping="Wrap" Text="" FontSize="24" Foreground="#FF1ACD5B"/>
+
+    </Grid>
+</Window>
