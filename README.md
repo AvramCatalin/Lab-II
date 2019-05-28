@@ -1,10 +1,9 @@
 # Lab-II
 Laborator de Informatica Industriala
+(Console Apps, Windows Forms Apps, ASP.NET Web Apps)
 
-If you keep getting errors when running the code then simply close Visual Studio and open it again, this will fix it 99% of the time.
+Here I have solved all the exercises and problems from the .Net labs.
 
-!Also make sure to change the AttachDbFilename paramter to the location of your database!
+If you keep getting errors when running the code, simply close Visual Studio and open it again, this will fix them 90% of the time.
 
-Example: 
-AttachDbFilename=C:\Users\Catalin\Documents\Lab-II\Lab 3\MyDatabase\Database1.mdf
-AttachDbFilename=C:\Users\JimiHendrix\Documents\Lab-II\Lab 3\MyDatabase\Database1.mdf
+Also If you have any questions simply send me a message, and I will try to give you a response as soon as I can.
